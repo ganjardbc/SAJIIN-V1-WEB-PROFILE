@@ -1,0 +1,205 @@
+.padding {
+    @for $var from 0 to 1000 {
+        &.padding-#{$var}-px {
+            padding: #{$var} + 'px';
+        }
+        &.padding-left-#{$var}-px {
+            padding-left: #{$var} + 'px';
+        }
+        &.padding-right-#{$var}-px {
+            padding-right: #{$var} + 'px';
+        }
+        &.padding-top-#{$var}-px {
+            padding-top: #{$var} + 'px';
+        }
+        &.padding-bottom-#{$var}-px {
+            padding-bottom: #{$var} + 'px';
+        }
+        &.padding-#{$var}px {
+            padding: #{$var} + 'px';
+        }
+        &.padding-left-#{$var}px {
+            padding-left: #{$var} + 'px';
+        }
+        &.padding-right-#{$var}px {
+            padding-right: #{$var} + 'px';
+        }
+        &.padding-top-#{$var}px {
+            padding-top: #{$var} + 'px';
+        }
+        &.padding-bottom-#{$var}px {
+            padding-bottom: #{$var} + 'px';
+        }
+        &.padding-#{$var} {
+            padding: #{$var} + '%';
+        }
+        &.padding-left-#{$var} {
+            padding-left: #{$var} + '%';
+        }
+        &.padding-right-#{$var} {
+            padding-right: #{$var} + '%';
+        }
+        &.padding-top-#{$var} {
+            padding-top: #{$var} + '%';
+        }
+        &.padding-bottom-#{$var} {
+            padding-bottom: #{$var} + '%';
+        }
+
+        @media (max-width: $min-width) {
+            &.padding-mobile-#{$var}-px {
+                padding: #{$var} + 'px';
+            }
+            &.padding-mobile-left-#{$var}-px {
+                padding-left: #{$var} + 'px';
+            }
+            &.padding-mobile-right-#{$var}-px {
+                padding-right: #{$var} + 'px';
+            }
+            &.padding-mobile-top-#{$var}-px {
+                padding-top: #{$var} + 'px';
+            }
+            &.padding-mobile-bottom-#{$var}-px {
+                padding-bottom: #{$var} + 'px';
+            }
+            &.padding-mobile-#{$var}px {
+                padding: #{$var} + 'px';
+            }
+            &.padding-mobile-left-#{$var}px {
+                padding-left: #{$var} + 'px';
+            }
+            &.padding-mobile-right-#{$var}px {
+                padding-right: #{$var} + 'px';
+            }
+            &.padding-mobile-top-#{$var}px {
+                padding-top: #{$var} + 'px';
+            }
+            &.padding-mobile-bottom-#{$var}px {
+                padding-bottom: #{$var} + 'px';
+            }
+            &.padding-mobile-#{$var} {
+                padding: #{$var} + '%';
+            }
+            &.padding-mobile-left-#{$var} {
+                padding-left: #{$var} + '%';
+            }
+            &.padding-mobile-right-#{$var} {
+                padding-right: #{$var} + '%';
+            }
+            &.padding-mobile-top-#{$var} {
+                padding-top: #{$var} + '%';
+            }
+            &.padding-mobile-bottom-#{$var} {
+                padding-bottom: #{$var} + '%';
+            }
+        }
+    }
+    &.padding-mobile {
+        @media (max-width: $min-width) {
+            padding: 0 0;
+        }
+    }
+}
+
+.margin {
+    @for $var from 0 to 1000 {
+        &.margin-#{$var}-px {
+            margin: #{$var} + 'px';
+        }
+        &.margin-left-#{$var}-px {
+            margin-left: #{$var} + 'px';
+        }
+        &.margin-right-#{$var}-px {
+            margin-right: #{$var} + 'px';
+        }
+        &.margin-top-#{$var}-px {
+            margin-top: #{$var} + 'px';
+        }
+        &.margin-bottom-#{$var}-px {
+            margin-bottom: #{$var} + 'px';
+        }
+        &.margin-#{$var}px {
+            margin: #{$var} + 'px';
+        }
+        &.margin-left-#{$var}px {
+            margin-left: #{$var} + 'px';
+        }
+        &.margin-right-#{$var}px {
+            margin-right: #{$var} + 'px';
+        }
+        &.margin-top-#{$var}px {
+            margin-top: #{$var} + 'px';
+        }
+        &.margin-bottom-#{$var}px {
+            margin-bottom: #{$var} + 'px';
+        }
+        &.margin-#{$var} {
+            margin: #{$var} + '%';
+        }
+        &.margin-left-#{$var} {
+            margin-left: #{$var} + '%';
+        }
+        &.margin-right-#{$var} {
+            margin-right: #{$var} + '%';
+        }
+        &.margin-top-#{$var} {
+            margin-top: #{$var} + '%';
+        }
+        &.margin-bottom-#{$var} {
+            margin-bottom: #{$var} + '%';
+        }
+
+        @media (max-width: $min-width) {
+            &.margin-mobile-#{$var}-px {
+                margin: #{$var} + 'px';
+            }
+            &.margin-mobile-left-#{$var}-px {
+                margin-left: #{$var} + 'px';
+            }
+            &.margin-mobile-right-#{$var}-px {
+                margin-right: #{$var} + 'px';
+            }
+            &.margin-mobile-top-#{$var}-px {
+                margin-top: #{$var} + 'px';
+            }
+            &.margin-mobile-bottom-#{$var}-px {
+                margin-bottom: #{$var} + 'px';
+            }
+            &.margin-mobile-#{$var}px {
+                margin: #{$var} + 'px';
+            }
+            &.margin-mobile-left-#{$var}px {
+                margin-left: #{$var} + 'px';
+            }
+            &.margin-mobile-right-#{$var}px {
+                margin-right: #{$var} + 'px';
+            }
+            &.margin-mobile-top-#{$var}px {
+                margin-top: #{$var} + 'px';
+            }
+            &.margin-mobile-bottom-#{$var}px {
+                margin-bottom: #{$var} + 'px';
+            }
+            &.margin-mobile-#{$var} {
+                margin: #{$var} + '%';
+            }
+            &.margin-mobile-left-#{$var} {
+                margin-left: #{$var} + '%';
+            }
+            &.margin-mobile-right-#{$var} {
+                margin-right: #{$var} + '%';
+            }
+            &.margin-mobile-top-#{$var} {
+                margin-top: #{$var} + '%';
+            }
+            &.margin-mobile-bottom-#{$var} {
+                margin-bottom: #{$var} + '%';
+            }
+        }
+    }
+    &.margin-mobile {
+        @media (max-width: $min-width) {
+            margin: 0 0;
+        }
+    }
+}
