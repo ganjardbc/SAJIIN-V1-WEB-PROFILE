@@ -2,7 +2,10 @@
     <div id="App">
         <div class="main-screen padding padding-bottom-25px">
             <div class="space">
-                <h2 class="fonts fonts-32px align-center bold black no-line-height" style="margin-bottom: 15px;">
+                <h2
+                    class="fonts fonts-32px align-center bold black no-line-height"
+                    style="margin-bottom: 15px"
+                >
                     Blog & Artikel
                 </h2>
                 <p class="fonts fonts-16px align-center grey">
@@ -12,10 +15,13 @@
 
             <Card :data="articles" />
 
-            <AppLoader v-if="visibleLoader" style="margin-top: 40px;" />
+            <AppLoader v-if="visibleLoader" style="margin-top: 40px" />
 
-
-            <div v-if="!visibleLoader && visibleLoadMore" class="display-flex center" style="margin-top: 40px;">
+            <div
+                v-if="!visibleLoader && visibleLoadMore"
+                class="display-flex center"
+                style="margin-top: 40px"
+            >
                 <button class="btn btn-sekunder" @click="onMore">
                     Load More
                 </button>
@@ -25,118 +31,129 @@
 </template>
 
 <script>
-import { gsap, ScrollTrigger } from 'gsap/all'
-import axios from 'axios'
-import icon from '../../../../img/contents/1.jpg'
-import AppLoader from '../../modules/AppLoader'
-import Card from './Card'
+import { gsap, ScrollTrigger } from "gsap/all";
+import axios from "axios";
+import icon from "../../../../img/contents/1.jpg";
+import AppLoader from "../../modules/AppLoader";
+import Card from "./Card";
 
 export default {
     components: {
         AppLoader,
         Card,
     },
-    mounted () {
-        this.getArticle(this.limit, this.offset)
-        const val = this 
-        gsap.registerPlugin(ScrollTrigger)
-        gsap.utils.toArray(".theme-article-animate").forEach(function(elm) {
-            val.hide(elm)
+    mounted() {
+        this.getArticle(this.limit, this.offset);
+        const val = this;
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.utils.toArray(".theme-article-animate").forEach(function (elm) {
+            val.hide(elm);
             ScrollTrigger.create({
                 trigger: elm,
-                onEnter: function() { val.animateFrom(elm) }, 
-                onEnterBack: function() { val.animateFrom(elm, -1) },
-                onLeave: function() { val.hide(elm) }
-            })
-        })
+                onEnter: function () {
+                    val.animateFrom(elm);
+                },
+                onEnterBack: function () {
+                    val.animateFrom(elm, -1);
+                },
+                onLeave: function () {
+                    val.hide(elm);
+                },
+            });
+        });
     },
     methods: {
-        animateFrom (elem, direction) {
-            direction = direction || 1
+        animateFrom(elem, direction) {
+            direction = direction || 1;
             var x = 0,
-                y = direction * 100
+                y = direction * 100;
             if (elem.classList.contains("theme-article-animate-fromLeft")) {
-                x = -100
-                y = 0
-            } 
-            if (elem.classList.contains("theme-article-animate-fromRight")) {
-                x = 100
-                y = 0
+                x = -100;
+                y = 0;
             }
-            elem.style.transform = "translate(" + x + "px, " + y + "px)"
-            elem.style.opacity = "0"
-            gsap.fromTo(elem, {x: x, y: y, autoAlpha: 0}, {
-                duration: 1.25, 
-                x: 0,
-                y: 0, 
-                autoAlpha: 1, 
-                ease: "expo", 
-                overwrite: "auto"
-            })
+            if (elem.classList.contains("theme-article-animate-fromRight")) {
+                x = 100;
+                y = 0;
+            }
+            elem.style.transform = "translate(" + x + "px, " + y + "px)";
+            elem.style.opacity = "0";
+            gsap.fromTo(
+                elem,
+                { x: x, y: y, autoAlpha: 0 },
+                {
+                    duration: 1.25,
+                    x: 0,
+                    y: 0,
+                    autoAlpha: 1,
+                    ease: "expo",
+                    overwrite: "auto",
+                }
+            );
         },
         hide(elem) {
-            gsap.set(elem, {autoAlpha: 0})
+            gsap.set(elem, { autoAlpha: 0 });
         },
-        async getArticle (limit, offset) {
-            this.visibleLoader = true 
+        async getArticle(limit, offset) {
+            this.visibleLoader = true;
 
-            let article = []
+            let article = [];
 
             if (offset > 0) {
-                article = Object.assign([], this.articles)
+                article = Object.assign([], this.articles);
             } else {
-                article = []
+                article = [];
             }
 
             const payload = {
                 limit: limit,
-                offset: offset
-            }
+                offset: offset,
+            };
 
-            const rest = await axios.post('/api/public/article', payload)
+            const rest = await axios.post("/api/public/article", payload);
 
             if (rest && rest.status === 200) {
-                const data = rest.data.data
-                data && data.map((dt) => {
-                    return article.push({
-                        ...dt,
-                        id: dt.id,
-                        image: '/contents/articles/thumbnails/' + dt.image,
-                        title: dt.title,
-                        description: dt.description
-                    })
-                })
-                this.articles = article
-                this.visibleLoader = false 
+                const data = rest.data.data;
+                data &&
+                    data.map((dt) => {
+                        return article.push({
+                            ...dt,
+                            id: dt.id,
+                            image: "/contents/articles/thumbnails/" + dt.image,
+                            title: dt.title,
+                            description: dt.description,
+                        });
+                    });
+                this.articles = article;
+                this.visibleLoader = false;
 
                 if (data.length > 0) {
-                    this.offset += this.limit
+                    this.offset += this.limit;
                 }
 
                 if (data.length < this.limit) {
-                    this.visibleLoadMore = false
+                    this.visibleLoadMore = false;
                 } else {
-                    this.visibleLoadMore = true
+                    this.visibleLoadMore = true;
                 }
             } else {
-                this.visibleLoader = false 
+                this.visibleLoader = false;
             }
         },
-        onMore () {
-            this.getArticle(this.limit, this.offset)
-        }
+        onMore() {
+            this.getArticle(this.limit, this.offset);
+        },
     },
-    data () {
+    data() {
         return {
             visibleLoader: false,
             icon: icon,
             limit: 9,
             offset: 0,
             visibleLoadMore: false,
-            articles: []
-        }
-    }
-}
+            articles: [],
+        };
+    },
+};
 </script>
 
 <style scoped>
