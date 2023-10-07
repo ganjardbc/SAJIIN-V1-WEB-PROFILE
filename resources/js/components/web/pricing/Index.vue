@@ -4,20 +4,20 @@
     </div>
 </template>
 <script>
-import AppPricing from '../infos/Pricing'
+import AppPricing from "../infos/Pricing";
 
 export default {
-    name: 'App',
+    name: "App",
     metaInfo: {
-        title: 'Saji-in',
-        titleTemplate: '%s | Harga Undangan',
+        title: "Saji-in",
+        titleTemplate: "%s | Harga Sajiin",
         htmlAttrs: {
-            lang: 'en',
-            amp: true
-        }
+            lang: "en",
+            amp: true,
+        },
     },
     components: {
-        AppPricing
-    }
-}
+        AppPricing,
+    },
+};
 </script>
