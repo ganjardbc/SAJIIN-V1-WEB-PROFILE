@@ -9,7 +9,8 @@
     <meta name="keywords" content="Aplikasi Kasir Digital, Aplikasi Kasir Online, Aplikasi Kasir Simpel, Aplikasi Kasir Sederhana, Aplikasi Kasir Geratis" />
     <meta name="google-site-verification" content="sRbr0-NS6TYhTddR1uovzAzBeXN1d7kJGpA0zFYQEL0" />
     <title>Saji-in | Serve All You Want</title>
-    <link data-vue-meta="1" rel="icon" href="https://undangabi.com/images/icon.png">
+    <link data-vue-meta="1" rel="icon" href="{{ url('images/icon.png') }}">
+    <link rel="icon" href="{{ url('images/icon.png') }}">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
     <link href="{{ mix('css/app.css') }}?v={{ time() }}" type="text/css" rel="stylesheet"/>
     <style>
